@@ -9,4 +9,5 @@
 
 - Set ID in the script
     1. Set the ID in the variable `flight_id` e.g. `flight_id = "38550c41"`
-    2. Run the script `python processing.py` 
+    2. Run the script `python processing.py`
+    3. A json file `track ORIGIN-DESTINATION.json` should appear in the script folder 

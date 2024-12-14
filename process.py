@@ -55,5 +55,5 @@ for obj in track:
 json_object = json.dumps(output, indent=4)
 
 # write to file
-with open(f"track {origin}-{destination}-exp.json", "w") as outfile:
+with open(f"track {origin}-{destination}.json", "w") as outfile:
     outfile.write(json_object)
