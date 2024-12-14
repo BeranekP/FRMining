@@ -11,4 +11,4 @@
     1. Set the ID in the variable `flight_id` e.g. `flight_id = "38550c41"`
     2. Run the script `python processing.py`
     3. A GeoJSON file `track ORIGIN-DESTINATION.json` should appear in the script folder
-        [Example](img/example.png)
+       ![Example](img/example.png)
