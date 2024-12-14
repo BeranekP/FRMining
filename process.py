@@ -32,7 +32,7 @@ output = {
 
 
 ## input parameters
-flight_id = "385578b7"
+flight_id = "38550c41"
 
 
 data = get_data(flight_id)
