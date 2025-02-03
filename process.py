@@ -1,12 +1,17 @@
 import json
 import requests
+import sys
+from datetime import datetime
 
 
-def get_data(flight_id: str) -> dict:
+
+def get_data(flight_id: str, timestamp="") -> dict:
     # request flight info from Flightradar24 api
     # return dict
-
-    url = f"https://api.flightradar24.com/common/v1/flight-playback.json?flightId={flight_id}"
+    if timestamp:
+        url = f"https://api.flightradar24.com/common/v1/flight-playback.json?flightId={flight_id}&timestamp={timestamp}"
+    else:
+        url = f"https://api.flightradar24.com/common/v1/flight-playback.json?flightId={flight_id}"
 
     payload = {}
     headers = {
@@ -14,6 +19,7 @@ def get_data(flight_id: str) -> dict:
         "Content-Type": "application/json",
     }
     response = requests.request("GET", url, headers=headers, data=payload)
+    print(response.status_code)
 
     return json.loads(response.text)
 
@@ -30,12 +36,21 @@ output = {
     ],
 }
 
+if len(sys.argv) < 2:
+    print("Provide at least flight_id")
+    sys.exit()
+
 
 ## input parameters
-flight_id = "38550c41"
+flight_id = sys.argv[1]
+timestamp=""
+if len(sys.argv) == 3:
+    time = sys.argv[2]
+    dt = datetime.strptime(time, "%d/%m/%Y-%H:%M:%S")
+    timestamp = dt.timestamp()
+    print(timestamp)
 
-
-data = get_data(flight_id)
+data = get_data(flight_id, timestamp)
 
 # get track data
 track = data["result"]["response"]["data"]["flight"]["track"]
