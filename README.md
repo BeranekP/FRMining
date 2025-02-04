@@ -8,7 +8,7 @@
         ![ID](img/FightID.png)
 
 - Set ID in the script
-    1. Set the ID in the variable `flight_id` e.g. `flight_id = "38550c41"`
-    2. Run the script `python processing.py`
+    1. Run the script `python processing.py %flightid% %date%`
+        e.g `python process.py 38ff21b6 04/02/2025-11:25`
     3. A GeoJSON file `track ORIGIN-DESTINATION.json` should appear in the script folder
        ![Example](img/example.png)
