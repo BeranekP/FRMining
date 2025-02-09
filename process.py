@@ -90,7 +90,7 @@ output["features"][0]["properties"]["name"] = f'{number}: {origin} -> {destinati
 json_object = json.dumps(output, indent=4)
 
 # write to file
-with open(f"track {origin}-{destination}.json", "w") as outfile:
+with open(f"track_{origin}-{destination}{datetime.now().strftime('%Y%M%d_%H%M%S')}.json", "w") as outfile:
     outfile.write(json_object)
 
 
